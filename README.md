@@ -1,234 +1,219 @@
-# Full Stack FastAPI Template
+# Enterprise Employee Management System (EMS)
 
-<a href="https://github.com/fastapi/full-stack-fastapi-template/actions?query=workflow%3A%22Test+Docker+Compose%22" target="_blank"><img src="https://github.com/fastapi/full-stack-fastapi-template/workflows/Test%20Docker%20Compose/badge.svg" alt="Test Docker Compose"></a>
-<a href="https://github.com/fastapi/full-stack-fastapi-template/actions?query=workflow%3A%22Test+Backend%22" target="_blank"><img src="https://github.com/fastapi/full-stack-fastapi-template/workflows/Test%20Backend/badge.svg" alt="Test Backend"></a>
-<a href="https://coverage-badge.samuelcolvin.workers.dev/redirect/fastapi/full-stack-fastapi-template" target="_blank"><img src="https://coverage-badge.samuelcolvin.workers.dev/fastapi/full-stack-fastapi-template.svg" alt="Coverage"></a>
+[![FastAPI](https://img.shields.io/badge/Backend-FastAPI-009688?style=for-the-badge&logo=fastapi)](https://fastapi.tiangolo.com)
+[![React](https://img.shields.io/badge/Frontend-React_19-61DAFB?style=for-the-badge&logo=react)](https://react.dev)
+[![TypeScript](https://img.shields.io/badge/Language-TypeScript-3178C6?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org)
+[![PostgreSQL](https://img.shields.io/badge/Database-PostgreSQL-4169E1?style=for-the-badge&logo=postgresql)](https://www.postgresql.org)
+[![Docker](https://img.shields.io/badge/Deployment-Docker-2496ED?style=for-the-badge&logo=docker)](https://www.docker.com)
 
-## Technology Stack and Features
+A modern, full-stack, enterprise-grade **Employee Management System (EMS)** designed to streamline workforce management, department structures, real-time attendance check-in/out, leave applications, and executive analytics through a secure, role-based platform.
 
-- ⚡ [**FastAPI**](https://fastapi.tiangolo.com) for the Python backend API.
-  - 🧰 [SQLModel](https://sqlmodel.tiangolo.com) for the Python SQL database interactions (ORM).
-  - 🔍 [Pydantic](https://docs.pydantic.dev), used by FastAPI, for the data validation and settings management.
-  - 💾 [PostgreSQL](https://www.postgresql.org) as the SQL database.
-- 🚀 [React](https://react.dev) for the frontend.
-  - 🧩 Built into the backend image and served by FastAPI on the same domain as the API.
-  - 💃 Using TypeScript, hooks, [Vite](https://vitejs.dev), and other parts of a modern frontend stack.
-  - 🎨 [Tailwind CSS](https://tailwindcss.com) and [shadcn/ui](https://ui.shadcn.com) for the frontend components.
-  - 🤖 An automatically generated frontend client.
-  - 🧪 [Playwright](https://playwright.dev) for End-to-End testing.
-  - 🦇 Dark mode support.
-- 🐋 [Docker Compose](https://www.docker.com) for development and production.
-- 🔒 Secure password hashing by default.
-- 🔑 JWT (JSON Web Token) authentication.
-- 📫 Email based password recovery.
-- 📬 [Mailcatcher](https://mailcatcher.me) for local email testing during development.
-- ✅ Tests with [Pytest](https://pytest.org).
-- 📞 [Traefik](https://traefik.io) as a reverse proxy / load balancer.
-- 🚢 Deployment instructions using Docker Compose, including how to set up Traefik to handle automatic HTTPS certificates.
-- 🏭 CI (continuous integration) and CD (continuous deployment) based on GitHub Actions.
+---
 
-### Dashboard Login
+## 📌 Overview
 
-[![Dashboard login screenshot](img/login.png)](https://github.com/fastapi/full-stack-fastapi-template)
+The **Enterprise Employee Management System (EMS)** provides HR teams, managers, administrators, and employees with an intuitive interface and RESTful API backend. Follow clean architecture principles, role-based access control (RBAC), SQLModel ORM, and responsive React frontend components with Tailwind CSS.
 
-### Dashboard - Admin
+---
 
-[![Admin dashboard screenshot](img/dashboard.png)](https://github.com/fastapi/full-stack-fastapi-template)
+## 🎯 Objectives & Highlights
 
-### Dashboard - Items
+- **Full-Stack REST Architecture**: Powered by FastAPI, Pydantic v2, and SQLModel.
+- **Modern React 19 Frontend**: Built with Vite, TypeScript, TanStack Router, TanStack Query, and Radix UI primitives.
+- **Role-Based Access Control (RBAC)**: Support for `ADMIN`, `HR`, `MANAGER`, and `EMPLOYEE` roles.
+- **Real-Time Shift Tracking**: 1-Click Shift Check-In & Check-Out with status calculations (`Checked In`, `Present`, `Late`, `Absent`).
+- **Automated Leave Approvals**: Multi-tier leave application workflow with auto-calculated duration and HR/Manager approval queue with feedback comments.
+- **Executive Analytics Dashboard**: Real-time KPI metrics, workforce department allocation breakdown, and recent activity streams.
 
-[![Items dashboard screenshot](img/dashboard-items.png)](https://github.com/fastapi/full-stack-fastapi-template)
+---
 
-### Dashboard - Dark Mode
+## 👨‍💻 Tech Stack
 
-[![Dark mode dashboard screenshot](img/dashboard-dark.png)](https://github.com/fastapi/full-stack-fastapi-template)
+### Frontend
+- **Framework**: React.js 19 + TypeScript + Vite
+- **Routing & State**: TanStack React Router & TanStack React Query
+- **Styling**: Tailwind CSS 4 + Radix UI + Lucide Icons + Next Themes (Dark/Light mode)
+- **Forms & Toast**: React Hook Form + Sonner
 
-### Interactive API Documentation
+### Backend
+- **Framework**: Python 3.12+ & FastAPI
+- **ORM & Validation**: SQLModel (SQLAlchemy + Pydantic v2)
+- **Auth & Security**: JWT Authentication, OAuth2 Password Bearer, bcrypt password hashing
+- **Testing**: Pytest
 
-[![API docs](img/docs.png)](https://github.com/fastapi/full-stack-fastapi-template)
+### Database & Deployment
+- **Database**: PostgreSQL / SQLite
+- **DevOps & Containers**: Docker, Docker Compose, Nginx, Traefik
 
-## How To Use It
+---
 
-You can **just fork or clone** this repository and use it as is.
+## 🏗️ System Architecture
 
-✨ It just works. ✨
-
-### How to Use a Private Repository
-
-If you want to have a private repository, GitHub won't allow you to simply fork it as it doesn't allow changing the visibility of forks.
-
-But you can do the following:
-
-- Create a new GitHub repo, for example `my-full-stack`.
-- Clone this repository manually, set the name with the name of the project you want to use, for example `my-full-stack`:
-
-```bash
-git clone git@github.com:fastapi/full-stack-fastapi-template.git my-full-stack
+```
+                       React 19 Frontend (Vite + TypeScript)
+                                         │
+                                         │ REST APIs (JSON / JWT)
+                                         ▼
+                             FastAPI Backend Application
+                                         │
+                        ┌────────────────┴────────────────┐
+                        │    Role-Based Auth (RBAC)       │
+                        └────────────────┬────────────────┘
+                                         │
+                                Business Logic Layer
+                        (Employees, Depts, Attendance, Leave)
+                                         │
+                                SQLModel (ORM Layer)
+                                         │
+                                PostgreSQL / Database
 ```
 
-- Enter into the new directory:
+---
 
-```bash
-cd my-full-stack
+## 👥 User Roles & Permissions
+
+| Feature / Action | Admin 🛡️ | HR 👔 | Manager 📈 | Employee 🧑‍💻 |
+|------------------|:-------:|:-----:|:---------:|:----------:|
+| View Dashboard Analytics | ✅ | ✅ | ✅ | ✅ |
+| Manage Employees (CRUD) | ✅ | ✅ | Read Only | Personal Only |
+| Manage Departments (CRUD) | ✅ | ✅ | Read Only | Read Only |
+| Attendance Check-In / Out | ✅ | ✅ | ✅ | ✅ |
+| View Attendance Roster | ✅ | ✅ | Team Only | Self Only |
+| Apply for Leave | ✅ | ✅ | ✅ | ✅ |
+| Approve / Reject Leaves | ✅ | ✅ | Team Only | ❌ |
+
+---
+
+## 📂 System Modules
+
+### 1. Authentication & Role Authorization
+- JWT Access Token generation.
+- Secure bcrypt password hashing.
+- Role-based route protection.
+
+### 2. Employee Management (`/employees`)
+- Multi-field search (Name, Email, Designation).
+- Filters by Department & Active/Inactive status.
+- Add / Edit Employee modal with optional user login account creation.
+- Salary, joining date, and manager tracking.
+
+### 3. Department Management (`/departments`)
+- Department code badges (e.g. `ENG`, `HR`, `PRD`, `MKT`, `FIN`).
+- Real-time active member count allocation.
+- Modal forms for creating & updating department units.
+
+### 4. Attendance Portal (`/attendance`)
+- 1-Click Check-In & Check-Out timestamp recording.
+- Automated shift status determination (`Checked In`, `Present`, `Late`).
+- Historic attendance roster filterable by date and status.
+
+### 5. Leave Management Center (`/leave`)
+- Personal leave balances (Annual, Sick, Casual).
+- Apply for leave modal with start/end date calculation.
+- Pending Approvals Queue for HR & Managers with 1-click Approve / Reject with feedback.
+
+---
+
+## 🔗 REST API Endpoints
+
+### Authentication
+```http
+POST   /api/v1/login/access-token
+GET    /api/v1/users/me
+POST   /api/v1/users/signup
 ```
 
-- Set the new origin to your new repository, copy it from the GitHub interface, for example:
-
-```bash
-git remote set-url origin git@github.com:octocat/my-full-stack.git
+### Departments
+```http
+GET    /api/v1/departments/
+POST   /api/v1/departments/
+GET    /api/v1/departments/{id}
+PUT    /api/v1/departments/{id}
+DELETE /api/v1/departments/{id}
 ```
 
-- Add this repo as another "remote" to allow you to get updates later:
-
-```bash
-git remote add upstream git@github.com:fastapi/full-stack-fastapi-template.git
+### Employees
+```http
+GET    /api/v1/employees/
+POST   /api/v1/employees/
+GET    /api/v1/employees/{id}
+PUT    /api/v1/employees/{id}
+DELETE /api/v1/employees/{id}
 ```
 
-- Push the code to your new repository:
-
-```bash
-git push -u origin master
+### Attendance
+```http
+POST   /api/v1/attendance/check-in
+POST   /api/v1/attendance/check-out
+GET    /api/v1/attendance/today
+GET    /api/v1/attendance/
+GET    /api/v1/attendance/{employee_id}
 ```
 
-### Update From the Original Template
-
-After cloning the repository, and after doing changes, you might want to get the latest changes from this original template.
-
-- Make sure you added the original repository as a remote, you can check it with:
-
-```bash
-git remote -v
-
-origin    git@github.com:octocat/my-full-stack.git (fetch)
-origin    git@github.com:octocat/my-full-stack.git (push)
-upstream    git@github.com:fastapi/full-stack-fastapi-template.git (fetch)
-upstream    git@github.com:fastapi/full-stack-fastapi-template.git (push)
+### Leave Management
+```http
+POST   /api/v1/leave/
+GET    /api/v1/leave/
+GET    /api/v1/leave/my-leaves
+PUT    /api/v1/leave/{id}/status
+DELETE /api/v1/leave/{id}
 ```
 
-- Pull the latest changes without merging:
-
-```bash
-git pull --no-commit upstream master
+### Executive Dashboard
+```http
+GET    /api/v1/dashboard/stats
 ```
 
-This will download the latest changes from this template without committing them, that way you can check everything is right before committing.
+---
 
-- If there are conflicts, solve them in your editor.
+## 🚀 Installation & Local Setup
 
-- Once you are done, commit the changes:
-
+### Option 1: Docker Compose (Recommended)
 ```bash
-git merge --continue
+# 1. Clone the repository
+git clone https://github.com/guptasahil3284-source/Employee-Management.git
+cd Employee-Management
+
+# 2. Start all services using Docker Compose
+docker compose up -d --build
+```
+- **Frontend App**: `http://localhost:5173`
+- **Backend API Docs**: `http://localhost:8000/docs`
+
+### Option 2: Local Development Setup
+
+#### Backend Setup
+```bash
+cd backend
+python -m venv .venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+fastapi dev app/main.py
 ```
 
-### Configure
-
-You can then update configs in the `.env` files to customize your configurations.
-
-Before deploying it, make sure you change at least the values for:
-
-- `SECRET_KEY`
-- `FIRST_SUPERUSER_PASSWORD`
-- `POSTGRES_PASSWORD`
-
-You can (and should) pass these as environment variables from secrets.
-
-Read the [deployment.md](./deployment.md) docs for more details.
-
-### Generate Secret Keys
-
-Some environment variables in the `.env` file have a default value of `changethis`.
-
-You have to change them with a secret key, to generate secret keys you can run the following command:
-
+#### Frontend Setup
 ```bash
-python -c "import secrets; print(secrets.token_urlsafe(32))"
+cd frontend
+npm install
+npm run dev
 ```
 
-Copy the content and use that as password / secret key. And run that again to generate another secure key.
+---
 
-## How To Use It - Alternative With Copier
+## 🔑 Demo System Credentials
 
-This repository also supports generating a new project using [Copier](https://copier.readthedocs.io).
+| Role | Email | Password |
+|------|-------|----------|
+| **System Admin** | `admin@example.com` | `password` |
+| **HR Director** | `hr@example.com` | `password123` |
+| **Engineering Manager** | `manager@example.com` | `password123` |
+| **Senior Developer** | `david.chen@example.com` | `password123` |
 
-It will copy all the files, ask you configuration questions, and update the `.env` files with your answers.
+---
 
-### Install Copier
+## 👨‍💻 Author
 
-You can install Copier with:
-
-```bash
-pip install copier
-```
-
-Or better, if you have [`pipx`](https://pipx.pypa.io/), you can run it with:
-
-```bash
-pipx install copier
-```
-
-**Note**: If you have `pipx`, installing copier is optional, you could run it directly.
-
-### Generate a Project With Copier
-
-Decide a name for your new project's directory, you will use it below. For example, `my-awesome-project`.
-
-Go to the directory that will be the parent of your project, and run the command with your project's name:
-
-```bash
-copier copy https://github.com/fastapi/full-stack-fastapi-template my-awesome-project --trust
-```
-
-If you have `pipx` and you didn't install `copier`, you can run it directly:
-
-```bash
-pipx run copier copy https://github.com/fastapi/full-stack-fastapi-template my-awesome-project --trust
-```
-
-**Note** the `--trust` option is necessary to be able to execute a [post-creation script](https://github.com/fastapi/full-stack-fastapi-template/blob/master/.copier/update_dotenv.py) that updates your `.env` files.
-
-### Input Variables
-
-Copier will ask you for some data, you might want to have at hand before generating the project.
-
-But don't worry, you can just update any of that in the `.env` files afterwards.
-
-The input variables, with their default values (some auto generated) are:
-
-- `project_name`: (default: `"FastAPI Project"`) The name of the project, shown to API users (in .env).
-- `stack_name`: (default: `"fastapi-project"`) The name of the stack used for Docker Compose labels and project name (no spaces, no periods) (in .env).
-- `secret_key`: (default: `"changethis"`) The secret key for the project, used for security, stored in .env, you can generate one with the method above.
-- `first_superuser`: (default: `"admin@example.com"`) The email of the first superuser (in .env).
-- `first_superuser_password`: (default: `"changethis"`) The password of the first superuser (in .env).
-- `smtp_host`: (default: "") The SMTP server host to send emails, you can set it later in .env.
-- `smtp_user`: (default: "") The SMTP server user to send emails, you can set it later in .env.
-- `smtp_password`: (default: "") The SMTP server password to send emails, you can set it later in .env.
-- `emails_from_email`: (default: `"info@example.com"`) The email account to send emails from, you can set it later in .env.
-- `postgres_password`: (default: `"changethis"`) The password for the PostgreSQL database, stored in .env, you can generate one with the method above.
-- `sentry_dsn`: (default: "") The DSN for Sentry, if you are using it, you can set it later in .env.
-
-## Backend Development
-
-Backend docs: [backend/README.md](./backend/README.md).
-
-## Frontend Development
-
-Frontend docs: [frontend/README.md](./frontend/README.md).
-
-## Deployment
-
-Deployment docs: [deployment.md](./deployment.md).
-
-## Development
-
-General development docs: [development.md](./development.md).
-
-This includes using Docker Compose, custom local domains, `.env` configurations, etc.
-
-## Release Notes
-
-Check the file [release-notes.md](./release-notes.md).
-
-## License
-
-The Full Stack FastAPI Template is licensed under the terms of the MIT license.
+**Sahil Gupta**  
+*B.Tech Computer Science & Engineering*  
+Full Stack Developer | Software Engineer  
+GitHub: [SahilGupta893](https://github.com/SahilGupta893) / [guptasahil3284-source](https://github.com/guptasahil3284-source)

@@ -36,7 +36,7 @@ jobs:
           # To allow latest-changes to commit to the default branch
           token: ${{ secrets.LATEST_CHANGES }} # zizmor: ignore[secrets-outside-env]
           persist-credentials: true # required by tiangolo/latest-changes
-      - uses: tiangolo/latest-changes@8a940392f4c65274539453a5d5a76d9550203ac1 # 0.7.1
+      - uses: tiangolo/latest-changes@a8b61c97c207b9f0770d49ef657e26c5f20c8935 # 0.7.2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           debug_logs: true
